@@ -26,8 +26,27 @@ public class DuckTimerViewer extends JFrame{
 
     public void paint (Graphics g){
         if(screenStatus == 0){
+            // Opening Screen
             //  image = new ImageIcon().getImage();
             // g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+
+        }
+        else if (screenStatus == 1) {
+            //timer set up screen
+            //  image = new ImageIcon().getImage();
+            // g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+
+        }
+        else if (screenStatus == 2) {
+            // timer screen
+            //  image = new ImageIcon().getImage();
+            // g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+
+            d.startClock();
+
+
+        }
+        else if (screenStatus == 3) {
 
         }
     }
