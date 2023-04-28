@@ -1,13 +1,15 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 public class DuckTimer implements ActionListener {
     private static final int SLEEP_TIME = 110;
     private DuckTimerViewer window;
     private Timer clock;
 
-    //private [] duckImages;
+    private Image[] duckImages;
     private Duck[] ducks;
 
     private int numDucks;
@@ -15,8 +17,10 @@ public class DuckTimer implements ActionListener {
     public DuckTimer(){
         window = new DuckTimerViewer(this);
 
-        for(int i = 0; i < 21; i++){
+        duckImages = new Image[21];
 
+        for(int i = 0; i < 21; i++){
+            duckImages[i] = new ImageIcon("Resources/" + (i + 1) + ".png").getImage();
         }
     }
 
@@ -38,12 +42,18 @@ public class DuckTimer implements ActionListener {
         for (int i = 0; i < numDucks; i++){
             Duck duck = new Duck(i, window);
             ducks[i] = duck;
-            //duck.setDuckImage(duckImages[i]);
+            duck.setDuckImage(duckImages[i]);
         }
 
         int winDuck = (int) (Math.random() * numDucks);
         ducks[winDuck].setWinningDuck(true);
     }
+
+    public void setDucks(){
+
+
+    }
+
 
     public static void main(String[] args) {
         //runs the game
@@ -52,7 +62,6 @@ public class DuckTimer implements ActionListener {
     }
 
     public void run(){
-        window.setScreenStatus(0);
         window.repaint();
     }
 }

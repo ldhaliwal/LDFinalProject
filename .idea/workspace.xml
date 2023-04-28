@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d5da78b-d30f-424c-81ae-2412af70ec66" name="Changes" comment="worked on all classes">
-      <change afterPath="$PROJECT_DIR$/Resources/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/9.png" afterDir="false" />
+    <list default="true" id="1d5da78b-d30f-424c-81ae-2412af70ec66" name="Changes" comment="worked on buttons and front end, added duck images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DuckTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DuckTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DuckTimerViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DuckTimerViewer.java" afterDir="false" />
@@ -113,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682535298605</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="worked on buttons and front end, added duck images">
+      <created>1682659118823</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682659118824</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +116,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial setup" />
     <MESSAGE value="worked on all classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="worked on all classes" />
+    <MESSAGE value="worked on buttons and front end, added duck images" />
+    <option name="LAST_COMMIT_MESSAGE" value="worked on buttons and front end, added duck images" />
   </component>
 </project>
