@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d5da78b-d30f-424c-81ae-2412af70ec66" name="Changes" comment="Initial setup">
-      <change afterPath="$PROJECT_DIR$/Resources/Opening.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/StartButton.png" afterDir="false" />
+    <list default="true" id="1d5da78b-d30f-424c-81ae-2412af70ec66" name="Changes" comment="worked on all classes">
+      <change afterPath="$PROJECT_DIR$/Resources/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DuckTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DuckTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DuckTimerViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DuckTimerViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +62,27 @@
       <recent name="$PROJECT_DIR$/Resources" />
     </key>
   </component>
+  <component name="RunManager" selected="Application.DuckTimer">
+    <configuration name="ButtonDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ButtonDemo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DuckTimer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DuckTimer" />
+      <module name="LDFinalProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DuckTimer" />
+        <item itemvalue="Application.ButtonDemo" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682369142938</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="worked on all classes">
+      <created>1682535298605</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682535298605</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,6 +129,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial setup" />
+    <MESSAGE value="worked on all classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="worked on all classes" />
   </component>
 </project>

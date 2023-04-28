@@ -1,13 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 
-public class DuckTimerViewer extends JFrame implements KeyListener{
+public class DuckTimerViewer extends JFrame implements KeyListener, ActionListener {
     private final int WINDOW_WIDTH = 1200;
     private final int WINDOW_HEIGHT = 800;
+
+    private static final String START_GAME = "start";
 
     private Image image;
     private DuckTimer d;
@@ -22,11 +26,15 @@ public class DuckTimerViewer extends JFrame implements KeyListener{
 
         screenStatus = 0;
 
-        /*icon = new ImageIcon("Resources/Opening.png");
-        start = new JButton(icon);
-        this.add(start);
-        start.setLocation(250, 250);
-        */
+        //icon = new ImageIcon("Resources/Opening.png");
+
+        /*start = new JButton("Start Game");
+        start.setBounds(460, 400, 180,60);
+        start.setActionCommand(START_GAME);
+        start.addActionListener(this);
+
+         */
+        //this.add(start);
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Duck Timer");
@@ -44,13 +52,18 @@ public class DuckTimerViewer extends JFrame implements KeyListener{
             // Opening Screen
             image = new ImageIcon("Resources/Opening.png").getImage();
             g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+
+            start = new JButton("Start Game");
+            start.setBounds(460, 400, 180,60);
+            start.setActionCommand(START_GAME);
+            start.addActionListener(this);
+            this.add(start);
         }
         else if (screenStatus == 1) {
-            //timer set up screen
-            //  image = new ImageIcon().getImage();
-            // g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+            start.setVisible(false);
             g.setColor(Color.orange);
             g.drawRect(0, 22, 255, 255);
+            g.fillRect(0, 22, 255, 255);
 
         }
         else if (screenStatus == 2) {
@@ -84,5 +97,14 @@ public class DuckTimerViewer extends JFrame implements KeyListener{
         }
 
         repaint();
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals(START_GAME)) {
+            start.setVisible(false);
+            this.remove(start);
+            screenStatus = 1;
+            repaint();
+        }
     }
 }

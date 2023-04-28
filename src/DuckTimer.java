@@ -7,16 +7,20 @@ public class DuckTimer implements ActionListener {
     private DuckTimerViewer window;
     private Timer clock;
 
+    //private [] duckImages;
     private Duck[] ducks;
 
     private int numDucks;
 
     public DuckTimer(){
         window = new DuckTimerViewer(this);
+
+        for(int i = 0; i < 21; i++){
+
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
-
         window.repaint();
     }
 
@@ -34,6 +38,7 @@ public class DuckTimer implements ActionListener {
         for (int i = 0; i < numDucks; i++){
             Duck duck = new Duck(i, window);
             ducks[i] = duck;
+            //duck.setDuckImage(duckImages[i]);
         }
 
         int winDuck = (int) (Math.random() * numDucks);
