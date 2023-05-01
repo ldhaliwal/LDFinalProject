@@ -4,7 +4,7 @@ public class Duck {
     private int speed;
     private Image duckImage;
     private final int number;
-    private int x;
+    private int x = 50;
     private int y;
     private boolean winningDuck;
     private DuckTimerViewer window;
@@ -13,8 +13,7 @@ public class Duck {
         this.number = number;
         this.window = window;
 
-        // Sets x and y values
-        //y = __ + number;
+        y = 800 - ((400/window.getD().getNumDucks()) * number);
     }
 
     public int getSpeed() {
