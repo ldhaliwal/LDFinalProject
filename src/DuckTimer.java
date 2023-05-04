@@ -36,6 +36,9 @@ public class DuckTimer implements ActionListener {
         if (timeLeft <= 0){
             timeOver();
         }
+
+        updateDucks();
+        updateClock();
         window.repaint();
     }
 
@@ -69,14 +72,27 @@ public class DuckTimer implements ActionListener {
             Duck duck = new Duck(i, window);
             ducks[i] = duck;
             duck.setDuckImage(duckImages[i]);
+            duck.setSpeed(1);
         }
 
-        int winDuck = (int) (Math.random() * numDucks);
-        ducks[winDuck].setWinningDuck(true);
+
+
+
+        //int winDuck = (int) (Math.random() * numDucks);
+        //ducks[winDuck].setWinningDuck(true);
 
         window.setDucks(ducks);
         window.setScreenStatus(2);
     }
+
+    public void updateDucks(){
+
+    }
+
+    public void updateClock(){
+
+    }
+
 
     public void timeOver(){
         clock.stop();

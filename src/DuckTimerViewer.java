@@ -80,17 +80,18 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
             g.drawRect(0, 22, 255, 255);
             g.fillRect(0, 22, 255, 255);
 
-            for(int i = 0; i < d.getNumDucks(); i++){
+            for(int i = d.getNumDucks() - 1; i >= 0; i--){
                 image = ducks[i].getDuckImage();
                 int x = ducks[i].getX();
                 int y = ducks[i].getY();
-                g.drawImage(image, x, y, image.getWidth(this)/5, image.getHeight(this)/5, this);
+                g.drawImage(image, x, (y - (image.getHeight(this)/5)), image.getWidth(this)/5, image.getHeight(this)/5, this);
             }
             d.startClock();
         }
         else if (screenStatus == 3) {
 
         }
+        Toolkit.getDefaultToolkit().sync();
     }
 
     public void keyTyped(KeyEvent e) {
