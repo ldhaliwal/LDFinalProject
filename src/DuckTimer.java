@@ -9,6 +9,7 @@ public class DuckTimer implements ActionListener {
     private DuckTimerViewer window;
     private Timer clock;
 
+    private double avg;
     private int timeLeft;
     private int minutes;
     private int seconds;
@@ -29,9 +30,14 @@ public class DuckTimer implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+
         timeLeft -= SLEEP_TIME;
         minutes = timeLeft/MIN_TO_MILLISECONDS;
         seconds = (timeLeft - (minutes * MIN_TO_MILLISECONDS)) / 1000;
+
+        System.out.println("Minutes: " + minutes);
+        System.out.println("Second: " + seconds);
+        System.out.println("time left: " + timeLeft);
 
         if (timeLeft <= 0){
             timeOver();
@@ -58,6 +64,14 @@ public class DuckTimer implements ActionListener {
         numDucks = num;
     }
 
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
     public int getNumDucks(){
         return numDucks;
     }
@@ -75,9 +89,6 @@ public class DuckTimer implements ActionListener {
             duck.setSpeed(1);
         }
 
-
-
-
         //int winDuck = (int) (Math.random() * numDucks);
         //ducks[winDuck].setWinningDuck(true);
 
@@ -86,17 +97,28 @@ public class DuckTimer implements ActionListener {
     }
 
     public void updateDucks(){
-
+        int total = 0;
+        for(Duck d : ducks){
+            if(d.getSpeed() > avg){
+                d.setSpeed(d.getSpeed() - 1);
+            }
+            else if(d.getSpeed() < avg){
+                d.setSpeed(d.getSpeed() + 1);
+            }
+            int random = (int) (Math.random() * 2) + 1;
+            d.setSpeed(d.getSpeed() + random);
+            total += d.getSpeed();
+        }
+        avg = total / (double) numDucks;
     }
 
     public void updateClock(){
 
     }
 
-
     public void timeOver(){
         clock.stop();
-        window.setScreenStatus(3);
+        window.setScreenStatus(4);
     }
 
     public static void main(String[] args) {

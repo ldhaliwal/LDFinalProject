@@ -1,5 +1,4 @@
 import com.sun.jdi.IntegerValue;
-
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.JButton;
@@ -86,10 +85,53 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
                 int y = ducks[i].getY();
                 g.drawImage(image, x, (y - (image.getHeight(this)/5)), image.getWidth(this)/5, image.getHeight(this)/5, this);
             }
+            screenStatus = 3;
             d.startClock();
         }
         else if (screenStatus == 3) {
+            image = new ImageIcon("Resources/Opening.png").getImage();
+            g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
 
+            g.setColor(Color.black);
+            g.drawRect(0, 22, 255, 255);
+            g.fillRect(0, 22, 255, 255);
+
+            // Draws ducks
+            for(int i = d.getNumDucks() - 1; i >= 0; i--){
+                image = ducks[i].getDuckImage();
+                int x = ducks[i].getX();
+                int y = ducks[i].getY();
+                g.drawImage(image, x, (y - (image.getHeight(this)/5)), image.getWidth(this)/5, image.getHeight(this)/5, this);
+            }
+
+            // Draws clock
+            image = new ImageIcon("Resources/ClockBackground.png").getImage();
+            g.drawImage(image, 400, 100, 420, 200, this);
+
+            g.setFont(new Font("SansSerif", Font.BOLD, 150));
+            if(d.getMinutes() < 10){
+                g.drawString("0"+String.valueOf(d.getMinutes()), 400, 260);
+            }
+            else{
+                g.drawString(String.valueOf(d.getMinutes()), 400, 260);
+            }
+
+            if(d.getSeconds() < 10){
+                g.drawString("0"+String.valueOf(d.getSeconds()), 625, 260);
+            }
+            else{
+                g.drawString(String.valueOf(d.getSeconds()), 625, 260);
+            }
+
+
+        }
+        else if (screenStatus == 4) {
+            image = new ImageIcon("Resources/Opening.png").getImage();
+            g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+
+            g.setColor(Color.red);
+            g.drawRect(0, 22, 255, 255);
+            g.fillRect(0, 22, 255, 255);
         }
         Toolkit.getDefaultToolkit().sync();
     }
@@ -120,5 +162,6 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
 
             repaint();
         }
+
     }
 }
