@@ -151,7 +151,6 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals(START_GAME)) {
-            //this.getContentPane().remove(start);
             start.setVisible(false);
             screenStatus = 1;
             revalidate();
