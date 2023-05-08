@@ -122,8 +122,6 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
             else{
                 g.drawString(String.valueOf(d.getSeconds()), 625, 260);
             }
-
-
         }
         else if (screenStatus == 4) {
             image = new ImageIcon("Resources/Opening.png").getImage();

@@ -39,12 +39,13 @@ public class DuckTimer implements ActionListener {
         System.out.println("Second: " + seconds);
         System.out.println("time left: " + timeLeft);
 
+        avg = (110000/timeLeft);
+
         if (timeLeft <= 0){
             timeOver();
         }
 
         updateDucks();
-        updateClock();
         window.repaint();
     }
 
@@ -86,18 +87,16 @@ public class DuckTimer implements ActionListener {
             Duck duck = new Duck(i, window);
             ducks[i] = duck;
             duck.setDuckImage(duckImages[i]);
-            duck.setSpeed(1);
+
+            // Initializes the duck's speed
+            duck.setSpeed((int) Math.round(avg));
         }
-
-        //int winDuck = (int) (Math.random() * numDucks);
-        //ducks[winDuck].setWinningDuck(true);
-
         window.setDucks(ducks);
         window.setScreenStatus(2);
     }
 
     public void updateDucks(){
-        int total = 0;
+        //int total = 0;
         for(Duck d : ducks){
             if(d.getSpeed() > avg){
                 d.setSpeed(d.getSpeed() - 1);
@@ -105,15 +104,16 @@ public class DuckTimer implements ActionListener {
             else if(d.getSpeed() < avg){
                 d.setSpeed(d.getSpeed() + 1);
             }
-            int random = (int) (Math.random() * 2) + 1;
-            d.setSpeed(d.getSpeed() + random);
-            total += d.getSpeed();
+
+            // Generates random speed value and adds it to the speed
+            //int random = (int) (Math.random() * 3) - 1;
+            //d.setSpeed(d.getSpeed() + random);
+
+            // Updates the x value
+            d.setX(d.getX() + d.getSpeed());
+            //total += d.getSpeed();
         }
-        avg = total / (double) numDucks;
-    }
-
-    public void updateClock(){
-
+        //avg = total / (double) numDucks;
     }
 
     public void timeOver(){
