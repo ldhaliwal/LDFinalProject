@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d5da78b-d30f-424c-81ae-2412af70ec66" name="Changes" comment="Fixed clock and made it display">
+    <list default="true" id="1d5da78b-d30f-424c-81ae-2412af70ec66" name="Changes" comment="Started duck animation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DuckTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DuckTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DuckTimerViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DuckTimerViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683418560795</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Started duck animation">
+      <created>1683586296085</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683586296085</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +160,7 @@
     <MESSAGE value="worked on buttons and front end, added duck images" />
     <MESSAGE value="got stuff to somewhat work" />
     <MESSAGE value="Fixed clock and made it display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed clock and made it display" />
+    <MESSAGE value="Started duck animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started duck animation" />
   </component>
 </project>

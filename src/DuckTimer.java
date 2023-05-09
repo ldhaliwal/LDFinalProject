@@ -83,6 +83,11 @@ public class DuckTimer implements ActionListener {
 
     public void createDucks(){
         ducks = new Duck[numDucks];
+
+
+        int winDuck = (int) (Math.random() * numDucks);
+        ducks[winDuck].setWinningDuck(true);
+
         for (int i = 0; i < numDucks; i++){
             Duck duck = new Duck(i, window);
             ducks[i] = duck;
@@ -91,6 +96,9 @@ public class DuckTimer implements ActionListener {
             // Initializes the duck's speed
             duck.setSpeed((int) Math.round(avg));
         }
+
+
+
         window.setDucks(ducks);
         window.setScreenStatus(2);
     }
