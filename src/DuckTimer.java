@@ -14,6 +14,8 @@ public class DuckTimer implements ActionListener {
     private int minutes;
     private int seconds;
 
+    private int numLaps;
+
     private Image[] duckImages;
     private Duck[] ducks;
 
@@ -30,19 +32,19 @@ public class DuckTimer implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-
         timeLeft -= SLEEP_TIME;
         minutes = timeLeft/MIN_TO_MILLISECONDS;
         seconds = (timeLeft - (minutes * MIN_TO_MILLISECONDS)) / 1000;
 
-        System.out.println("Minutes: " + minutes);
-        System.out.println("Second: " + seconds);
-        System.out.println("time left: " + timeLeft);
-
-        avg = (110000/timeLeft);
+        //System.out.println("Minutes: " + minutes);
+        //System.out.println("Second: " + seconds);
+        //System.out.println("time left: " + timeLeft);
 
         if (timeLeft <= 0){
             timeOver();
+        }
+        else{
+            avg = (110000/timeLeft);
         }
 
         updateDucks();
@@ -52,6 +54,7 @@ public class DuckTimer implements ActionListener {
     public void setTimeLeft(){
         //setNumDucks(Integer.parseInt(JOptionPane.showInputDialog("How many ducks do you want to race? (max 21)")));
         int time = Integer.parseInt(JOptionPane.showInputDialog("How long do you want your timer to last? (in minutes)"));
+        numLaps = time * 3;
         timeLeft = time * MIN_TO_MILLISECONDS;
     }
 
@@ -84,44 +87,50 @@ public class DuckTimer implements ActionListener {
     public void createDucks(){
         ducks = new Duck[numDucks];
 
-
+        // Randomly generates a winning duck
         int winDuck = (int) (Math.random() * numDucks);
-        ducks[winDuck].setWinningDuck(true);
+        System.out.println("Winning duck: " + winDuck);
 
         for (int i = 0; i < numDucks; i++){
             Duck duck = new Duck(i, window);
             ducks[i] = duck;
             duck.setDuckImage(duckImages[i]);
 
+            if(i == winDuck){
+                duck.setWinningDuck(true);
+            }
+
             // Initializes the duck's speed
-            duck.setSpeed((int) Math.round(avg));
+            if(duck.isWinningDuck()){
+                duck.setSpeed(((int) Math.round(avg) * 3) + 1);
+            }
+            else {
+                int randomSpeed = (int) (Math.random() * avg) + 1;
+                duck.setSpeed(randomSpeed * 3);
+            }
         }
-
-
 
         window.setDucks(ducks);
         window.setScreenStatus(2);
     }
 
     public void updateDucks(){
-        //int total = 0;
         for(Duck d : ducks){
-            if(d.getSpeed() > avg){
-                d.setSpeed(d.getSpeed() - 1);
-            }
-            else if(d.getSpeed() < avg){
-                d.setSpeed(d.getSpeed() + 1);
+            if(!d.isWinningDuck()){
+                if(d.getSpeed() > (avg/2)){
+                    d.setSpeed(d.getSpeed() - 1);
+                }
+                else if(d.getSpeed() < (avg/2)){
+                    d.setSpeed(d.getSpeed() + 1);
+                }
             }
 
-            // Generates random speed value and adds it to the speed
-            //int random = (int) (Math.random() * 3) - 1;
-            //d.setSpeed(d.getSpeed() + random);
-
-            // Updates the x value
+            // Updates the x value of each duck
             d.setX(d.getX() + d.getSpeed());
-            //total += d.getSpeed();
+            if(d.getX() >= 1200){
+                d.setX(0);
+            }
         }
-        //avg = total / (double) numDucks;
     }
 
     public void timeOver(){

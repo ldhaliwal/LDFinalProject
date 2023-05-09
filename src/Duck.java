@@ -2,6 +2,8 @@ import java.awt.*;
 
 public class Duck {
     private int speed;
+
+    private int laps;
     private Image duckImage;
     private final int number;
     private int x = 50;
