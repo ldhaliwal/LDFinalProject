@@ -1,15 +1,10 @@
-import com.sun.jdi.IntegerValue;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.JOptionPane;
 
-
-public class DuckTimerViewer extends JFrame implements KeyListener, ActionListener {
+public class DuckTimerViewer extends JFrame implements ActionListener {
     private final int WINDOW_WIDTH = 1200;
     private final int WINDOW_HEIGHT = 800;
 
@@ -32,14 +27,12 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
         start.setBounds(460, 400, 180,60);
         start.setActionCommand(START_GAME);
         start.addActionListener(this);
-        //this.getContentPane().add(start);
 
         this.setLayout(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Duck Timer");
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setVisible(true);
-        addKeyListener(this);
     }
 
     public void setScreenStatus(int screenStatus) {
@@ -71,13 +64,8 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
             g.fillRect(0, 22, 255, 255);
         }
         else if (screenStatus == 2) {
-            // timer screen
             image = new ImageIcon("Resources/Opening.png").getImage();
             g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
-
-            g.setColor(Color.blue);
-            g.drawRect(0, 22, 255, 255);
-            g.fillRect(0, 22, 255, 255);
 
             for(int i = d.getNumDucks() - 1; i >= 0; i--){
                 image = ducks[i].getDuckImage();
@@ -89,12 +77,8 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
             d.startClock();
         }
         else if (screenStatus == 3) {
-            image = new ImageIcon("Resources/Opening.png").getImage();
+            image = new ImageIcon("Resources/RaceBackground.png").getImage();
             g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
-
-            g.setColor(Color.black);
-            g.drawRect(0, 22, 255, 255);
-            g.fillRect(0, 22, 255, 255);
 
             // Draws ducks
             for(int i = d.getNumDucks() - 1; i >= 0; i--){
@@ -106,57 +90,38 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
 
             // Draws clock
             image = new ImageIcon("Resources/ClockBackground.png").getImage();
-            g.drawImage(image, 400, 100, 420, 200, this);
+            g.drawImage(image, 380, 100, 420, 200, this);
 
             g.setFont(new Font("SansSerif", Font.BOLD, 150));
             if(d.getMinutes() < 10){
-                g.drawString("0"+String.valueOf(d.getMinutes()), 400, 260);
+                g.drawString("0"+String.valueOf(d.getMinutes()), 380, 260);
             }
             else{
-                g.drawString(String.valueOf(d.getMinutes()), 400, 260);
+                g.drawString(String.valueOf(d.getMinutes()), 380, 260);
             }
 
             if(d.getSeconds() < 10){
-                g.drawString("0"+String.valueOf(d.getSeconds()), 625, 260);
+                g.drawString("0"+String.valueOf(d.getSeconds()), 605, 260);
             }
             else{
-                g.drawString(String.valueOf(d.getSeconds()), 625, 260);
+                g.drawString(String.valueOf(d.getSeconds()), 605, 260);
             }
 
             Duck leader = d.getLeader();
-
             g.setFont(new Font("SansSerif", Font.BOLD, 25));
-            g.drawString("Winning duck: #" + (leader.getNumber() + 1), 850, 200);
-            g.drawString("Duck #" + (leader.getNumber() + 1) + " has made" + leader.getLaps() + " laps", 850, 250);
-
-
+            g.drawString("Winning duck: #" + (leader.getNumber() + 1), 35, 200);
+            g.drawString("Duck #" + (leader.getNumber() + 1) + " has made " + leader.getLaps() + " laps", 830, 200);
         }
         else if (screenStatus == 4) {
             image = new ImageIcon("Resources/Opening.png").getImage();
             g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
 
-            g.setColor(Color.red);
-            g.drawRect(0, 22, 255, 255);
-            g.fillRect(0, 22, 255, 255);
-
-            String winningDuck = String.valueOf(d.getLeader().getNumber());
+            String winningDuck = String.valueOf(d.getLeader().getNumber() + 1);
             g.setFont(new Font("SansSerif", Font.BOLD, 25));
             g.setColor(Color.blue);
             g.drawString("The winning duck is duck number " + winningDuck + "!", 100, 400);
         }
         Toolkit.getDefaultToolkit().sync();
-    }
-
-    public void keyTyped(KeyEvent e) {
-    }
-
-    public void keyReleased(KeyEvent e) {
-    }
-
-    public void keyPressed(KeyEvent e) {
-        // The keyCode lets you know which key was pressed
-        int keyCode = e.getKeyCode();
-        repaint();
     }
 
     @Override
@@ -172,6 +137,5 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
 
             repaint();
         }
-
     }
 }

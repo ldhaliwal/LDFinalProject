@@ -8,7 +8,6 @@ public class Duck {
     private final int number;
     private int x = 50;
     private int y;
-    private boolean winningDuck;
     private DuckTimerViewer window;
 
     public Duck (int number, DuckTimerViewer window){
@@ -49,18 +48,6 @@ public class Duck {
 
     public int getY() {
         return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public boolean isWinningDuck() {
-        return winningDuck;
-    }
-
-    public void setWinningDuck(boolean winningDuck) {
-        this.winningDuck = winningDuck;
     }
 
     public int getLaps() {

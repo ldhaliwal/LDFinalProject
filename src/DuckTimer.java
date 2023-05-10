@@ -9,12 +9,9 @@ public class DuckTimer implements ActionListener {
     private DuckTimerViewer window;
     private Timer clock;
 
-    private double avg;
     private int timeLeft;
     private int minutes;
     private int seconds;
-
-    private int numLaps;
 
     private Image[] duckImages;
     private Duck[] ducks;
@@ -36,15 +33,9 @@ public class DuckTimer implements ActionListener {
         minutes = timeLeft/MIN_TO_MILLISECONDS;
         seconds = (timeLeft - (minutes * MIN_TO_MILLISECONDS)) / 1000;
 
-        //System.out.println("Minutes: " + minutes);
-        //System.out.println("Second: " + seconds);
-        //System.out.println("time left: " + timeLeft);
 
         if (timeLeft <= 0){
             timeOver();
-        }
-        else{
-            avg = (110000/timeLeft) * 3;
         }
 
         updateDucks();
@@ -52,9 +43,10 @@ public class DuckTimer implements ActionListener {
     }
 
     public void setTimeLeft(){
-        //setNumDucks(Integer.parseInt(JOptionPane.showInputDialog("How many ducks do you want to race? (max 21)")));
-        int time = Integer.parseInt(JOptionPane.showInputDialog("How long do you want your timer to last? (in minutes)"));
-        numLaps = time * 3;
+        int time = 0;
+        while(time < 1){
+            time = Integer.parseInt(JOptionPane.showInputDialog("How long do you want your timer to last? (in minutes)"));
+        }
         timeLeft = time * MIN_TO_MILLISECONDS;
     }
 
@@ -64,7 +56,10 @@ public class DuckTimer implements ActionListener {
     }
 
     public void setNumDucks(){
-        int num = Integer.parseInt(JOptionPane.showInputDialog("How many ducks do you want to race? (max 21)"));
+        int num = 0;
+        while(num < 1 || num > 21){
+            num = Integer.parseInt(JOptionPane.showInputDialog("How many ducks do you want to race? (max 21)"));
+        }
         numDucks = num;
     }
 
@@ -80,9 +75,6 @@ public class DuckTimer implements ActionListener {
         return numDucks;
     }
 
-    public Duck[] getDucks() {
-        return ducks;
-    }
 
     public void createDucks(){
         ducks = new Duck[numDucks];
@@ -122,9 +114,13 @@ public class DuckTimer implements ActionListener {
 
     public Duck getLeader(){
         int topDuck = 0;
-        int topLaps = 0;
+        int topLaps = Integer.MIN_VALUE;
         for(int i = 0; i < ducks.length; i++){
             if(ducks[i].getLaps() > topLaps){
+                topDuck = i;
+                topLaps = ducks[i].getLaps();
+            }
+            if(ducks[i].getLaps() == topLaps && ducks[i].getX() > ducks[topDuck].getX()){
                 topDuck = i;
                 topLaps = ducks[i].getLaps();
             }
