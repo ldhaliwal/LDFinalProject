@@ -122,6 +122,14 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
             else{
                 g.drawString(String.valueOf(d.getSeconds()), 625, 260);
             }
+
+            Duck leader = d.getLeader();
+
+            g.setFont(new Font("SansSerif", Font.BOLD, 25));
+            g.drawString("Winning duck: #" + (leader.getNumber() + 1), 850, 200);
+            g.drawString("Duck #" + (leader.getNumber() + 1) + " has made" + leader.getLaps() + " laps", 850, 250);
+
+
         }
         else if (screenStatus == 4) {
             image = new ImageIcon("Resources/Opening.png").getImage();
@@ -130,6 +138,11 @@ public class DuckTimerViewer extends JFrame implements KeyListener, ActionListen
             g.setColor(Color.red);
             g.drawRect(0, 22, 255, 255);
             g.fillRect(0, 22, 255, 255);
+
+            String winningDuck = String.valueOf(d.getLeader().getNumber());
+            g.setFont(new Font("SansSerif", Font.BOLD, 25));
+            g.setColor(Color.blue);
+            g.drawString("The winning duck is duck number " + winningDuck + "!", 100, 400);
         }
         Toolkit.getDefaultToolkit().sync();
     }

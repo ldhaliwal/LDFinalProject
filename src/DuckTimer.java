@@ -44,7 +44,7 @@ public class DuckTimer implements ActionListener {
             timeOver();
         }
         else{
-            avg = (110000/timeLeft);
+            avg = (110000/timeLeft) * 3;
         }
 
         updateDucks();
@@ -87,27 +87,14 @@ public class DuckTimer implements ActionListener {
     public void createDucks(){
         ducks = new Duck[numDucks];
 
-        // Randomly generates a winning duck
-        int winDuck = (int) (Math.random() * numDucks);
-        System.out.println("Winning duck: " + winDuck);
-
         for (int i = 0; i < numDucks; i++){
             Duck duck = new Duck(i, window);
             ducks[i] = duck;
             duck.setDuckImage(duckImages[i]);
 
-            if(i == winDuck){
-                duck.setWinningDuck(true);
-            }
-
             // Initializes the duck's speed
-            if(duck.isWinningDuck()){
-                duck.setSpeed(((int) Math.round(avg) * 3) + 1);
-            }
-            else {
-                int randomSpeed = (int) (Math.random() * avg) + 1;
-                duck.setSpeed(randomSpeed * 3);
-            }
+            int randomSpeed = (int) (Math.random() * 5) + 1;
+            duck.setSpeed(randomSpeed);
         }
 
         window.setDucks(ducks);
@@ -116,21 +103,34 @@ public class DuckTimer implements ActionListener {
 
     public void updateDucks(){
         for(Duck d : ducks){
-            if(!d.isWinningDuck()){
-                if(d.getSpeed() > (avg/2)){
-                    d.setSpeed(d.getSpeed() - 1);
-                }
-                else if(d.getSpeed() < (avg/2)){
-                    d.setSpeed(d.getSpeed() + 1);
-                }
+            // Updates the speed of each duck
+            int randomSpeed = (int) (Math.random() * 5) - 2;
+            d.setSpeed(d.getSpeed() + randomSpeed);
+
+            if((d.getX() < 0 && d.getSpeed() < 0) || d.getSpeed() > 20 || d.getSpeed() < -5){
+                d.setSpeed(5);
             }
 
             // Updates the x value of each duck
             d.setX(d.getX() + d.getSpeed());
             if(d.getX() >= 1200){
                 d.setX(0);
+                d.setLaps(d.getLaps() + 1);
             }
         }
+    }
+
+    public Duck getLeader(){
+        int topDuck = 0;
+        int topLaps = 0;
+        for(int i = 0; i < ducks.length; i++){
+            if(ducks[i].getLaps() > topLaps){
+                topDuck = i;
+                topLaps = ducks[i].getLaps();
+            }
+        }
+
+        return ducks[topDuck];
     }
 
     public void timeOver(){

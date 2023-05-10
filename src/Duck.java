@@ -14,6 +14,7 @@ public class Duck {
     public Duck (int number, DuckTimerViewer window){
         this.number = number;
         this.window = window;
+        laps = 0;
 
         y = 800 - ((400/window.getD().getNumDucks()) * number);
     }
@@ -60,5 +61,13 @@ public class Duck {
 
     public void setWinningDuck(boolean winningDuck) {
         this.winningDuck = winningDuck;
+    }
+
+    public int getLaps() {
+        return laps;
+    }
+
+    public void setLaps(int laps) {
+        this.laps = laps;
     }
 }
