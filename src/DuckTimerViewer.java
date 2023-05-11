@@ -23,8 +23,8 @@ public class DuckTimerViewer extends JFrame implements ActionListener {
         this.d = d;
         screenStatus = 0;
 
-        start = new JButton("Start Game");
-        start.setBounds(460, 400, 180,60);
+        start = new JButton("Start");
+        start.setBounds(450, 250, 300,100);
         start.setActionCommand(START_GAME);
         start.addActionListener(this);
 
@@ -90,7 +90,7 @@ public class DuckTimerViewer extends JFrame implements ActionListener {
 
             // Draws clock
             image = new ImageIcon("Resources/ClockBackground.png").getImage();
-            g.drawImage(image, 380, 100, 420, 200, this);
+            g.drawImage(image, 380, 100, 425, 200, this);
 
             g.setFont(new Font("SansSerif", Font.BOLD, 150));
             if(d.getMinutes() < 10){
@@ -113,13 +113,15 @@ public class DuckTimerViewer extends JFrame implements ActionListener {
             g.drawString("Duck #" + (leader.getNumber() + 1) + " has made " + leader.getLaps() + " laps", 830, 200);
         }
         else if (screenStatus == 4) {
-            image = new ImageIcon("Resources/Opening.png").getImage();
+            image = new ImageIcon("Resources/OverBackground.png").getImage();
             g.drawImage(image, 0, 22, WINDOW_WIDTH, WINDOW_HEIGHT, this);
 
             String winningDuck = String.valueOf(d.getLeader().getNumber() + 1);
-            g.setFont(new Font("SansSerif", Font.BOLD, 25));
-            g.setColor(Color.blue);
-            g.drawString("The winning duck is duck number " + winningDuck + "!", 100, 400);
+            g.setFont(new Font("SansSerif", Font.BOLD, 70));
+            g.setColor(Color.black);
+            g.drawString("Time is up!", 400, 150);
+            g.setFont(new Font("SansSerif", Font.BOLD, 40));
+            g.drawString("The winning duck is duck number " + winningDuck + "!", 200, 370);
         }
         Toolkit.getDefaultToolkit().sync();
     }

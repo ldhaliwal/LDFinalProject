@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d5da78b-d30f-424c-81ae-2412af70ec66" name="Changes" comment=" duck animation">
-      <change afterPath="$PROJECT_DIR$/Resources/RaceBackground.png" afterDir="false" />
+    <list default="true" id="1d5da78b-d30f-424c-81ae-2412af70ec66" name="Changes" comment="Finished program!">
+      <change afterPath="$PROJECT_DIR$/Resources/OverBackground.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Duck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Duck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DuckTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DuckTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/ClockBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/ClockBackground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Opening.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Opening.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DuckTimerViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DuckTimerViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683740588532</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Finished program!">
+      <created>1683756080331</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683756080331</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +193,7 @@
     <MESSAGE value="Fixed clock and made it display" />
     <MESSAGE value="Started duck animation" />
     <MESSAGE value=" duck animation" />
-    <option name="LAST_COMMIT_MESSAGE" value=" duck animation" />
+    <MESSAGE value="Finished program!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished program!" />
   </component>
 </project>
